@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import ReusableChart from "./components/ReusableChart";
 import dynamic from "next/dynamic";
 
@@ -8,6 +8,20 @@ const CandlestickChart = dynamic(() => import('./components/CandlestickChart'), 
 });
 
 export default function Home() {
+
+  const [type, setType] = useState(" ");
+
+  useEffect(() => {
+    const fetchChartData = async (chartType: string) => {
+      setType(chartType);
+      const response = await fetch(`http://127.0.0.1:8000/api/${chartType}`);
+      const data = await response.json();
+      console.log(data);
+    }
+  }, [])
+
+
+
   return (
     <div className="">
       
