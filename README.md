@@ -20,7 +20,7 @@ If you haven’t already, clone the repository:
 
 ```bash
 git clone https://github.com/ColinSilvers/Blockhouse-Assessment
-cd Blockhouse-Assessment/blockhouse-assessment
+cd Blockhouse-Assessment
 ```
 
 ### 2. Navigate to the backend directory and set up the Django environment:
@@ -49,9 +49,9 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-### 7. Navigate to the blockhouse-assessment directory and set up the Next.js environment:
+### 7. In a new terminal, navigate to the blockhouse-assessment directory and set up the Next.js environment:
 ```bash
-cd ../blockhouse-assessment
+cd Blockhouse-Assessment
 ```
 ### 8. Install the dependencies
 ```bash
