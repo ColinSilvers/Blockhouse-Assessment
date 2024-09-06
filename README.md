@@ -18,7 +18,7 @@ This project consists of a Django backend and a Next.js frontend. Follow the ins
 
 If you haven’t already, clone the repository:
 
-
+```bash
 git clone https://github.com/ColinSilvers/Blockhouse-Assessment
 cd Blockhouse-Assessment/blockhouse-assessment
 
