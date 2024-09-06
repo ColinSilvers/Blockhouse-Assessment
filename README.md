@@ -68,7 +68,7 @@ The Next.js server should now be running at http://localhost:3000
 
 ## Charting Libraries
 
-Chart.js
+Chart.js,
 React-Plotly.js
 
 ## Testing Libraries
@@ -77,8 +77,8 @@ Jest
 
 ## Other Tools
 
-TailwindCSS
-Docker
+TailwindCSS,
+Docker,
 TypeScript
 
 # Approach/Thoughts
