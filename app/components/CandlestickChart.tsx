@@ -11,7 +11,7 @@ interface CandlestickData {
 }
 
 export default function CandlestickChart() {
-  const [data, setData] = useState<CandlestickData[]>([]);
+  const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -61,7 +61,7 @@ export default function CandlestickChart() {
 
   return (
     <Plot
-      data={[
+      data ={[
         {
           type: 'candlestick',
           x: xValues,

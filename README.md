@@ -62,4 +62,33 @@ npm install
 npm run dev
 ```
 
-The Next.js server should now be running at http://localhost:3000.
+The Next.js server should now be running at http://localhost:3000
+
+# Libraries and Tools Used
+
+## Charting Libraries
+
+Chart.js
+React-Plotly.js
+
+## Testing Libraries
+
+Jest
+
+## Other Tools
+
+TailwindCSS
+Docker
+TypeScript
+
+# Approach/Thoughts
+
+Initially, I had planned to use Chart.js for all four charts. This fell through when I realized that Chart.js didn't have native, working support for candlestick charts. After this realization, I decided to use a library soley for candlestick charts that I had used before in a previous project built around stock market tracking, react-plotly.js. 
+
+Using Redux in a project of this scope would be overkill in my opinion. If I were to scale this project up significantly, I would consider using that or even the React Context API for state management purposes. 
+
+Looking back, and given more time, I would have put the charts on separate routes using React Router to clean up the interface and possibly create a dedicated Home page with a Navigation Bar in a Single Page Application. Currently, the project satisfies the given requirements, but this is one improvement I immediatley thought of at the end. 
+
+Thank you for giving me the opportunity to complete this assessment. I look forward to your review and feedback.
+
+
