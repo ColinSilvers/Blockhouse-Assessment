@@ -1,37 +1,82 @@
 "use client"
-import React from 'react';
+import { useEffect, useState } from "react";
 import Plot from 'react-plotly.js';
 
-const CandlestickChart: React.FC = () => {
-  // Data for the candlestick chart
-  const data = [{
-    type: 'candlestick',
-    x: ['Day 1', 'Day 2', 'Day 3', 'Day 4'], // X-axis labels
-    open: [120, 130, 125, 135], // Opening prices
-    high: [130, 135, 140, 150], // Highest prices
-    low: [110, 120, 120, 130], // Lowest prices
-    close: [125, 125, 135, 145], // Closing prices
-    name: 'Candlestick'
-  }];
+interface CandlestickData {
+  x: string; // Date or category
+  open: number;
+  high: number;
+  low: number;
+  close: number;
+}
 
-  // Layout configuration for the chart
-  const layout = {
-    title: 'Candlestick Chart',
-    xaxis: { title: 'Date' },
-    yaxis: { title: 'Price' },
-    xaxis: {
-      rangeslider: { visible: false } // Hide the range slider
-    }
-  };
+export default function CandlestickChart() {
+  const [data, setData] = useState<CandlestickData[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://127.0.0.1:8000/api/candlestick-data/');
+        
+        // Check for HTTP errors
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        
+        const result = await response.json();
+        
+  
+        setData(result);
+       
+        
+        setLoading(false);
+      } catch (error) {
+        if (error instanceof Error) {
+          setError(error.message);
+        } else {
+          setError("An unknown error occurred");
+        }
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  const xValues = data.x;
+  const openValues = data.open;
+  const highValues = data.high;
+  const lowValues = data.low;
+  const closeValues = data.close;
 
   return (
-    <div style={{ width: '90vw', height: '80vh' }}>
-      <Plot
-        data={data}
-        layout={layout}
-      />
-    </div>
+    <Plot
+      data={[
+        {
+          type: 'candlestick',
+          x: xValues,
+          open: openValues,
+          high: highValues,
+          low: lowValues,
+          close: closeValues,
+          name: 'Candlestick',
+        }
+      ]}
+      layout={{
+        title: 'Candlestick Chart',
+        xaxis: { title: 'Date' },
+        yaxis: { title: 'Value' },
+      }}
+    />
   );
-};
-
-export default CandlestickChart;
+}
