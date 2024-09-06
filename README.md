@@ -22,31 +22,31 @@ If you haven’t already, clone the repository:
 git clone https://github.com/ColinSilvers/Blockhouse-Assessment
 cd Blockhouse-Assessment/blockhouse-assessment
 
-# Navigate to the backend directory and set up the Django environment:
+### 2. Navigate to the backend directory and set up the Django environment:
 
 cd backend
 
-# Create a virtual environment (optional but recommended)
+### 3. Create a virtual environment (optional but recommended)
 python -m venv venv
 source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 
-# Install the dependencies
+### 4. Install the dependencies
 pip install -r requirements.txt
 
-# Apply database migrations
+### 5. Apply database migrations
 python manage.py migrate
 
-# Start the Django development server
+### 6. Start the Django development server
 python manage.py runserver
 
-# Navigate to the blockhouse-assessment directory and set up the Next.js environment:
+### 7. Navigate to the blockhouse-assessment directory and set up the Next.js environment:
 
 cd ../blockhouse-assessment
 
-# Install the dependencies
+### 8. Install the dependencies
 npm install
 
-# Start the Next.js development server
+### 9. Start the Next.js development server
 npm run dev
 
-# The Next.js server should now be running at http://localhost:3000.
+The Next.js server should now be running at http://localhost:3000.
